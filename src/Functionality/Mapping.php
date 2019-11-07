@@ -87,6 +87,7 @@ class Mapping
             'id' => $data->id,
             'name' => $data->name,
             'slug' => self::slugify($data->name),
+            'position' => $data->sort_index,
             'icon' => 'none',
             'image' => $data->image ?? 0,
         ];
