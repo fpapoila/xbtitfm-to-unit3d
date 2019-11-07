@@ -65,7 +65,7 @@ class Mapping
             'free' => $data->free === 'yes' ? 1 : 0,
             'anon' => $data->anonymous === 'true' ? 1 : 0,
             'size' => $data->size ?? 0,
-            'category_id' => $data->catid ?? null,
+            'category_id' => $data->category ?? null,
             'announce' => $data->announce_url ?? null,
             'num_file' => 0, //xbtitFM doesnt have this!
             'description' => $data->comment ?? 'Missing',
