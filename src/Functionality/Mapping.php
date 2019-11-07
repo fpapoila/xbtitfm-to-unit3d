@@ -62,7 +62,6 @@ class Mapping
             'imdb' => $data->imdb ?? 0,
             'tvdb' => $data->tvdb_id ?? 0,
             'sticky' => $data->sticky ?? 0,
-            'free' => $data->free ?? 0,
             'anon' => $data->anonymous ?? 0,
             'size' => $data->size ?? 0,
             'announce' => $data->announce_url ?? null,
