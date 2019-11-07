@@ -56,6 +56,7 @@ class FromXbtitFm extends Command
         $database = DB::connection('imports');
 
         $this->importUsers($database);
+        $this->importCategories($database);
         $this->importTorrents($database);
     }
 
