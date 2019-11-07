@@ -26,5 +26,5 @@ To import your old XbtitFM DB run:
 
 ```bash
 php artisan unit3d:from-xbtitfm --database='Your DB Name HERE' --username='Your DB Username Here'
---password='Your DB Password Here
+--password='Your DB Password Here'
 ```
