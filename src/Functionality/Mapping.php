@@ -28,7 +28,7 @@ class Mapping
             'username' => $data->username,
             'password' => $data->password ?? null,
             'passkey' => $data->pid ?? md5(uniqid().time().microtime()),
-            'rsskey' => $data->secret ?? md5(uniqid().time().microtime().$data->passhash),
+            'rsskey' => $data->secret ?? md5(uniqid().time().microtime().$data->password),
             'group_id' => 3, // Default Member Group
             'email' => $data->email ?? null,
             'uploaded' => $data->uploaded ?? 0,
