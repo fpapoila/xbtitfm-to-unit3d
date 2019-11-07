@@ -1,0 +1,35 @@
+{
+    "name": "hdinnovations/xbtitfm-to-unit3d",
+    "type": "library",
+    "description": "An artisan package to import a xbtitFM database into UNIT3D.",
+    "license": "MIT",
+    "keywords": [
+        "Laravel",
+        "UNIT3D",
+        "xbtitFM",
+        "Database",
+        "Import"
+    ],
+    "authors": [
+        {
+            "name": "HDInnovations (HDVinnie)",
+            "homepage": "https://github.com/HDInnovations",
+            "role": "Founder, Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "HDInnovations\\XbtitFmToUnit3d\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HDInnovations\\XbtitFmToUnit3d\\ServiceProvider"
+            ]
+        }
+    }
+}
