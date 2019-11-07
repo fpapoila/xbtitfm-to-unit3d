@@ -65,13 +65,30 @@ class Mapping
             'free' => $data->free === 'yes' ? 1 : 0,
             'anon' => $data->anonymous === 'true' ? 1 : 0,
             'size' => $data->size ?? 0,
+            'category_id' => $data->catid ?? null,
             'announce' => $data->announce_url ?? null,
+            'num_file' => 0, //xbtitFM doesnt have this!
             'description' => $data->comment ?? 'Missing',
             'seeders' => $data->seeds ?? 0,
             'leechers' => $data->leechers ?? 0,
             'times_completed' => $data->completed ?? 0,
             'created_at' => Carbon::createFromTimeString($data->data),
             'updated_at' => Carbon::createFromTimeString($data->lastupdate),
+        ];
+    }
+
+    /**
+     * @param  stdClass  $data
+     * @return array
+     */
+    public static function mapCategory(stdClass $data): array
+    {
+        return [
+            'id' => $data->id,
+            'name' => $data->name,
+            'slug' => self::slugify($data->name),
+            'icon' => 'none',
+            'image' => $data->image ?? 0,
         ];
     }
 

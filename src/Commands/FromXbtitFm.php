@@ -5,6 +5,7 @@ namespace HDInnovations\XbtitFmToUnit3d\Commands;
 use ErrorException;
 use App\Models\User;
 use App\Models\Torrent;
+use App\Models\Category;
 use InvalidArgumentException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,7 @@ class FromXbtitFm extends Command
                             {--password= : The database password}
                             {--prefix= : The database hostname or IP}
                             {--ignore-users : Ignore the users table when importing}
+                            {--ignore-categories : Ignore the categories table when importing}
                             {--ignore-torrents : Ignore the torrents table when importing}';
 
     /** @var string The console command description */
@@ -100,5 +102,20 @@ class FromXbtitFm extends Command
         }
 
         Imports::importTable($database, 'Torrent', 'xbtit_files', Torrent::class);
+    }
+
+    /**
+     * @param  ConnectionInterface  $database
+     * @throws ErrorException
+     */
+    private function importCategories(ConnectionInterface $database): void
+    {
+        if ($this->option('ignore-categories')) {
+            $this->output->note('Ignoring categories table');
+
+            return;
+        }
+
+        Imports::importTable($database, 'Category', 'xbtit_categories', Category::class);
     }
 }
